@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Upload Success</title>
+    <title>Reports Page</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -55,14 +55,45 @@
     <body>
 
       <div class="jumbotron">
-        <h1 class="display-3">The file was uploaded successfully.</h1>
-        <p>Once you have reviewed it do nothing to accept
-        the change or use the back button on your browswer to upload a new one.
-      The last image to be uploaded will be written to the database.</p>
-        <img src="{{ latest_file }}" class="img-fluid" alt="Responsive image">
+        <h1 class="display-3">Here are your reports:</h1>
+
+        <p>
+          {% if wrongDate %}
+          You must select a Start Date that is
+          before or the same day as the End Date. Both days must be before or on today.
+          Use the back button on your browser to try again.
+          {% endif %}
+        </p>
+        {% if sqlDict %}
+        <p>When you are done viewing the report select a different page or use <thead>
+          back button on your browswer to run another.
+        </p>
+        </thead>
+        <table style="width:100%">
+          <!-- table header -->
+          <tr>
+             {% for key in sqlDict[0] %}
+             <th> {{ key }} </th>
+             {% endfor %}
+          </tr>
+          {% endif %}
+          <!-- table rows -->
+          {% for dict_item in sqlDict %}
+          <tr>
+             {% for value in dict_item.values() %}
+             <td> {{ value }} </td>
+             {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+
+
+       </form>
       </div>
 
-    </body>
+
+
+      </body>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

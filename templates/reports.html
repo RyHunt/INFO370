@@ -56,13 +56,17 @@
 
       <div class="jumbotron">
         <h1 class="display-3">Download Reports</h1>
-        <p class="text-center"></p>
+        <p>Select a range of dates for which you would like to see reports for.</p>
+        <p class="text-center">
+        <form action="/reports1" method="POST">
+          Start Date:
+          <input type="date" name="sday">
+          End Date:
+          <input type="date" name="eday">
+          <input type="submit">
+        </form>
+      </p>
 
-        <form class="text-center" action = "http://localhost:5000/uploade" method = "POST"
-          enctype = "multipart/form-data">
-          <input type = "file" name = "file" />
-          <input type = "submit"/>
-       </form>
       </div>
 
 
