@@ -1,12 +1,12 @@
 def rename_pdf():
     import os, linecache, time
-    
+
     path = './uploads/'
-    
+
     timestr = time.strftime("%Y%m%d%-H%M")
-    
+
     filenames = os.listdir(path)
-    
+
     for filename in filenames:
         if not filename.startswith('20'):
             src = path + filename
@@ -16,13 +16,13 @@ def rename_pdf():
 
 def rename_png():
     import os, linecache, time
-    
+
     path = './images/'
-    
+
     timestr = time.strftime("%Y%m%d%-H%M")
-    
+
     filenames = os.listdir(path)
-    
+
     for filename in filenames:
         if not filename.startswith('20'):
             src = path + filename
